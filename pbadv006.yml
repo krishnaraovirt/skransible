@@ -1,0 +1,5 @@
+- hosts: db
+  
+  tasks:
+    - name install mysql db on remote server
+      yum: name=mysql state=installed

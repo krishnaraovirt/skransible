@@ -1,0 +1,48 @@
+- hosts: web
+  tasks:
+  - name: create a group named snetgrp01
+    group: name=snetgrp01
+- hosts: web
+  tasks:
+  - name: create user name snetusr01 in group name snetgrp01
+    user: name=snetusr01 group=snetgrp01 shell=/bin/bash
+- hosts: web
+  tasks:
+  - name: Ensure that Apache is installed
+    yum: name=httpd state=present
+  - name: Start Apache Services
+    service: name=httpd enabled=yes state=started
+  - name: stop firewall service
+    service: name=firewalld state=stopped
+- hosts: web
+  tasks:
+  - name: create a index.html file in /var/www/html location
+    file: dest:/var/www/html/index.html state:touch
+- hosts: web
+  tasks:
+  - name: Ansible create file if it doesn't exist example
+    file:
+      path: "/var/www/html/index.html"
+      state: touch
+  - name: add content to file 
+    copy:
+      dest: "/var/www/html/index.html"
+      content:
+        <html>
+        <header><title>This is title KRISHNA</title></header>
+        <body>
+        Hello world KRISHNA
+        </body>
+        </html>
+- hosts: web
+  tasks:
+  - name: create a directory
+    file:
+      name: gitrepos
+      state: directory
+      path: /root/skrgit/
+  - name: clone git repo to local servers
+    git:
+      repo: 'https://github.com/scmgalaxy/ansible-role-template'
+      dest: /root/skrgit/
+      clone: yes

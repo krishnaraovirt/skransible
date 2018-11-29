@@ -1,0 +1,6 @@
+- hosts: web
+  tasks:
+  - name: install package git in servers
+    package:
+      name: git
+      state: present

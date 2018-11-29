@@ -1,0 +1,12 @@
+- hosts: web
+  tasks:
+  - name: create a directory
+    file:
+      name: gitrepos
+      state: directory
+      path: /root/skrgit/
+  - name: clone git repo to local servers
+    git:
+      repo: 'https://github.com/scmgalaxy/ansible-role-template'
+      dest: /root/skrgit/
+      clone: yes

@@ -1,0 +1,6 @@
+- hosts: web
+  vars:
+    sername: httpd
+  task:
+  - name: Install Webservice
+     

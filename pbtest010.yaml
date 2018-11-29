@@ -1,0 +1,14 @@
+- hosts: dbweb
+  vars:
+    hello: [Asia, Americas, Artic, Antartic ,Oceania,Europe,Africa]
+    bolo: 
+      - krishna
+      - mahesh
+      - kumar
+  tasks:
+  - name: Ansible List variable Example
+    debug:
+      msg: "{{ hello[5] and bolo[1] }} " 
+  - name: Anisble Bolo example
+    debug:
+      msg: "{{bolo[0]}}"

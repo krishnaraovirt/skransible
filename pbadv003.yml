@@ -1,0 +1,13 @@
+- name: This sets up an httpd webserver
+  hosts: web
+  tasks:
+  - name: Install the httpd apps
+    yum: name=httpd
+  - name: start the httpd service
+    service: name=httpd enabled=yes state=started
+  - name: example copying file with owner and permissions
+    copy:
+     src: /opt/testnew.sh
+     dest: /tmp/testnew.sh
+     mode: 0644
+  - script: /opt/testnew.sh

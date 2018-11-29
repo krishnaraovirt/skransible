@@ -1,0 +1,6 @@
+- hosts: web
+  tasks:
+  - name: Start Apache Services
+    service: name=httpd enabled=yes state=stopped
+  - name: Ensure that Apache is installed
+    yum: name=httpd state=removed

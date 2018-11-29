@@ -1,0 +1,4 @@
+- hosts: web
+  tasks:
+  - name: create a index.html file in /var/www/html location
+    file: dest:/var/www/html/index.html state:touch

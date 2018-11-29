@@ -1,0 +1,39 @@
+- hosts: web
+#  vars:
+ #   yourname: Krishna Rao
+  #  age: 30
+   # emailaddress: krseelam@deloitte.com
+    
+
+  vars_prompt:
+    - name: enter yourname
+      prompt: "yourname" 
+      private: no
+    - name: enter your age
+      prompt: "age"
+      private: no
+    - name: enter email ID
+      prompt:  "emailaddress"
+      private: no
+    - name: company name
+      prompt: "companyname"
+      private: no
+  tasks:
+  - name: Ensure that Apache is installed
+    yum: name=httpd state=present
+    when: ansible_os_family == "RedHat"
+
+  - name: Start Apache Services
+    service: name=httpd enabled=yes state=started
+
+#  - name: Deploy configuration File
+#   template: src=templates/httpd.j2 dest=/etc/httpd/conf/httpd.conf
+ #   notify:
+  #    - Restart Apache
+
+  - name: Copy Site Files
+    template: src=templates/index.j2 dest=/var/www/html/index.html
+
+  handlers:
+     - name: Restart Apache
+       service: name=httpd state=restarted

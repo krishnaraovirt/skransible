@@ -1,0 +1,7 @@
+- hosts: web
+  tasks:
+  - name: Create a file in wen server
+    file:
+      dest: /etc/xyz.txt
+      state:  touch
+    when: ansible_os_family == "RedHat"

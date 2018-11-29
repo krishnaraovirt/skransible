@@ -1,0 +1,4 @@
+- hosts: web
+  tasks:
+  - name: create a group named snetgrp01
+    group: name=snetgrpTST01

@@ -1,0 +1,12 @@
+- hosts: web
+  vars:
+    pkgs: [git, httpd]
+  tasks:
+  - name: Install common software requirements
+    yum: name={{ item }} state=installed
+    with_items:
+      - "{{pkgs}}"
+  - name: Enable service for installed pkgs
+    service: name={{item}} enabled=yes  state=started
+    with_items:
+      - "{{pkgs}}"

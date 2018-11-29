@@ -1,0 +1,6 @@
+- hosts: web
+  tasks:
+  - name: Ansible create file if it doesn't exist example
+    file:
+      path: "/var/www/html/devops_server.txt"
+      state: touch
