@@ -7,3 +7,4 @@
   - name: stop firewall service
     service: name=firewalld state=stopped 
 ***Bluf master*****
+****DP**************
