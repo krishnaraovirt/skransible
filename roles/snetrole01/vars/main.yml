@@ -1,0 +1,4 @@
+---
+# vars file for snetrole01
+httpd_port=8080 
+

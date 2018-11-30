@@ -1,0 +1,4 @@
+# roles/example/tasks/redhat.yml
+- yum: name=httpd state=present
+- service: name=httpd enabled=yes status=started
+  when: ansible_os_family == "RedHat"

@@ -1,0 +1,5 @@
+---
+# tasks file for snetrole01 
+- name: import tasks based on requirement
+  import_tasks: redhat.yml
+  

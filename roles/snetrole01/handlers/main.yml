@@ -1,0 +1,12 @@
+---
+# handlers file for snetrole01
+
+#- name: Deploy configuration File
+#  template: src=templates/httpd.j2 dest=/etc/httpd/conf/httpd.conf
+#  notify:
+#    - Restart Apache
+
+
+handlers:
+   - name: Restart Apache
+     service: name=httpd state=restarted
